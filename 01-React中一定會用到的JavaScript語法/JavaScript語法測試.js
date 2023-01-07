@@ -55,4 +55,4 @@ console.log(`I want to buy the ${favoritePhone}`);
 const favoritePhone2 = 'Galaxy Note';
 const currentPrice = 31900;
 console.log(`the ${favoritePhone2} is ${currentPrice} now`);
-console.log(`the ${favoritePhone2} is ${currentPrice *0.7} now`);
+console.log(`the ${favoritePhone2} is ${currentPrice * 0.7} now`);
