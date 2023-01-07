@@ -44,3 +44,15 @@ const smartPhone = {
     brand: 'Apple',
     marchants: ['apple store', 'pchome', 'momo', 'shopee']
 };
+
+// 樣版字面值 (Template literals / Template string)
+// 實際應用
+// 帶入變數
+const favoritePhone = 'iPhone';
+console.log(`I want to buy the ${favoritePhone}`);
+
+// 帶入運算
+const favoritePhone2 = 'Galaxy Note';
+const currentPrice = 31900;
+console.log(`the ${favoritePhone2} is ${currentPrice} now`);
+console.log(`the ${favoritePhone2} is ${currentPrice *0.7} now`);
