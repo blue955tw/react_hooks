@@ -56,3 +56,13 @@ const favoritePhone2 = 'Galaxy Note';
 const currentPrice = 31900;
 console.log(`the ${favoritePhone2} is ${currentPrice} now`);
 console.log(`the ${favoritePhone2} is ${currentPrice * 0.7} now`);
+
+// 帶入HTML 區塊
+const buttonGroup = `
+    <div class="btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary active">
+            <input type="checkbox" checked autocomplete="off"> Checked
+        </label>
+    </div>
+`;
+document.body.innerHTML = buttonGroup;
