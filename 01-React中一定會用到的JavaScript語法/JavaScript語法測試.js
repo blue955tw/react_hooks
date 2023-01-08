@@ -66,3 +66,34 @@ const buttonGroup = `
     </div>
 `;
 document.body.innerHTML = buttonGroup;
+
+// 箭頭函式 (arrow functions)
+// 傳統定義函式
+function showIphonePrice(price) {
+    return `The Phone price is ${price}`;
+}
+console.log(showIphonePrice(16500));
+
+// output:
+// The Phone price is 16500
+
+const showIphonePrice2 = (price) => {
+    return `The Phone price is ${price}`;
+}
+console.log(showIphonePrice2(18500));
+
+// output:
+// The Phone price is 18500
+
+// 回傳物件時則外圍需要用小括弧包起來
+
+const showIphonePrice3 = () => ({
+    deviceName: 'iPhone11',
+    price: 24900,
+    brand: 'Apple',
+    marchants: ['apple store', 'pchome', 'momo', 'shopee']
+});
+console.log(showIphonePrice3());
+
+// output:
+// {deviceName: 'iPhone11', price: 24900, brand: 'Apple', marchants: Array(4)}
