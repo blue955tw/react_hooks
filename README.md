@@ -45,7 +45,7 @@ document.body.innerHTML = buttonGroup;
 ```
 
 # 箭頭函式 (arrow functions)
-* [Template literals (Template strings) JavaScript MDN](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Template_literals)
+* [Template literals (Template strings) JavaScript MDN](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
 
 **傳統定義函式**
 ```javascript
