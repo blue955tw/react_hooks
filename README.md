@@ -9,7 +9,7 @@ date: 2023-01-07 06:50:20
 
 # 樣板字面值 Template literals (Template strings)
 
-* [Template literals (Template strings) JavaScript MDN](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Template_literals)
+* [樣板字面值(Template literals) - JavaScript MDN](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Template_literals)
 
 **帶入變數**
 ```javascript
@@ -45,7 +45,7 @@ document.body.innerHTML = buttonGroup;
 ```
 
 # 箭頭函式 (arrow functions)
-* [Template literals (Template strings) JavaScript MDN](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
+* [箭頭函式運算式(arrow function expression) - JavaScript MDN](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
 
 **傳統定義函式**
 ```javascript
@@ -86,4 +86,74 @@ console.log(showIphonePrice3());
 
 // output:
 // {deviceName: 'iPhone11', price: 24900, brand: 'Apple', marchants: Array(4)}
+```
+
+# 解構賦值
+
+## 物件的解構賦值
+
+當我們拿到一大包內容物件時，而我們只需要該物件的一些屬性時，這就適用解構賦值。
+
+```javascript
+const product = {
+    name: 'iPhone',
+    image: 'https://i.imgur.com/b3qRKiI.jpg',
+    description: '全面創新三相機系統，身懷萬千本領，卻簡單易用。',
+    brand: 'Apple',
+    offers: {
+        priceCurrency: 'TWD',
+        price: '26,900',
+    },
+};
+```
+
+從物件取值，傳統上這樣宣告。
+
+```javascript
+const name = product.name;
+const description = product.desc
+console.log(name, description);
+
+// output:
+// iPhone 全面創新三相機系統，身懷萬千本領，卻簡單易用。
+```
+
+使用解構賦值，可以快速建立變數及取值，變數名稱與物件內必須相等，如果沒有相對應的變數名稱，變數同樣會被宣告，但是其值會變成 undefined
+
+```javascript
+const { name, description, battery } = product;
+console.log(name, description, battery);
+
+// output:
+// iPhone 全面創新三相機系統，身懷萬千本領，卻簡單易用。 undefined
+```
+
+## 進階：取出物件中的物件
+
+```javascript
+const {
+    offers: { price }
+} = product;
+
+console.log(price);
+console.log(offers);
+
+// output:
+// 26,900
+// ReferenceError: offers is not defined
+// 這裡沒有宣告 offers 的變數，所以會報錯。
+```
+
+如果必須同時建立 offers 和 price 兩個變數，先透過解構賦值取出 offers，再從 offers 取出 preice。
+
+```javascript
+const { offers } = product;
+const { price } = offers;
+
+console.log(price);
+console.log(offers);
+
+// output:
+// 26,900
+// {priceCurrency: 'TWD', price: '26,900'}
 ```
