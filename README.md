@@ -89,7 +89,7 @@ console.log(showIphonePrice3());
 // {deviceName: 'iPhone11', price: 24900, brand: 'Apple', marchants: Array(4)}
 ```
 
-# 解構賦值
+# 解構賦值(Destructuring assignment)
 
 * [解構賦值(Destructuring assignment) - JavaScript MDN](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 
@@ -158,3 +158,114 @@ console.log(offers);
 // 26,900
 // {priceCurrency: 'TWD', price: '26,900'}
 ```
+
+***陣列的解構賦值***
+
+定義一個陣列
+
+```javascript
+const mobileBrands = [
+    '三星', '蘋果', '華為', 'Oppo', 'Vivo',
+    '小米', 'LG', '聯想', 'ZTE'
+];
+```
+
+例如我想取出前三名的品牌，傳統沒有解構賦值的寫法。
+
+```javascript
+const base = mobileBrands[0];
+const second = mobileBrands[1];
+const third = mobileBrands[2];
+```
+使用解構賦值，自動建立 base, second, third 變數，並將 mobileBrands 元素 0, 1, 2 值自動帶入。
+
+```javascript
+const [base, second, third] = mobileBrands;
+
+console.log(base, second, third);
+
+// output:
+// 三星 蘋果 華為
+```
+# 展開語法(Spread syntax)
+
+* [展開語法(Spread syntax) - JavaScript MDN](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+
+定義一個智慧手機的物件
+
+```javascript
+const mobilePhone = {
+    name: 'Mobile Phone',
+    year: '2019'
+};
+```
+複製一個新物件，其中 name 屬性就會被覆寫，而 os 屬性會被添加進去，成為一個新物件。
+
+```javascript
+const iPhone = {
+    ...mobilePhone,
+    name: 'iPhone',
+    os: 'IOS'
+};
+
+console.log(iPhone);
+
+// output:
+// {name: 'iPhone', year: '2019', os: 'IOS'}
+```
+展開語法同樣也可以用來複製陣列
+
+```javascript
+const mobileOnSale = ['三星', '蘋果', '華為'];
+const allMobile = [...mobileOnSale, 'Oppo', 'Vivo', '小米'];
+
+console.log(allMobile);
+
+// output:
+// ['三星', '蘋果', '華為', 'Oppo', 'Vivo', '小米']
+```
+# 其餘語法
+
+* 其餘語法(Spread syntax) - JavaScript MDN
+
+其餘語法可以將解構賦值中沒有被取出來的變數和陣列元素，都放到一個壓縮包裡。
+
+```javascript
+const production = {
+    id: 'iPhone',
+    image: 'https://i.imgur.com/b3qRKiI.jpg',
+    explanation: '全面創新三相機系統，身懷萬千本領，卻簡單易用。',
+    brand: 'Apple',
+    aggregateRating: {
+        ratingValue: '4.6',
+        reviewCount: '120',
+    },
+    offers: {
+        priceCurrency: 'TWD',
+        price: '26,900',
+    },
+};
+
+const { id, explanation, ...other } = production;
+
+console.log(other);
+
+// output:
+// {image: 'https://i.imgur.com/b3qRKiI.jpg', brand: 'Apple', aggregateRating: {…}, offers: {…}}
+```
+
+同樣適用於陣列
+
+```javascript
+const mobileBrands = [
+    '三星', '蘋果', '華為', 'Oppo', 'Vivo',
+    '小米', 'LG', '聯想', 'ZTE'
+];
+
+const [base, second, third, ...someone] = mobileBrands;
+
+// 變數不一定要取名為 other
+console.log(someone);
+
+// output:
+// ['Oppo', 'Vivo', '小米', 'LG', '聯想', 'ZTE']

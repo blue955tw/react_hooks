@@ -140,3 +140,91 @@ const { offers } = product;
 const { price } = offers;
 console.log(price);
 console.log(offers);
+
+// 陣列的解構賦值
+
+// const mobileBrands = [
+//     '三星', '蘋果', '華為', 'Oppo', 'Vivo',
+//     '小米', 'LG', '聯想', 'ZTE'
+// ];
+
+// 例如我想取出前三名的品牌，傳統沒有解構賦值的寫法。
+
+// const base = mobileBrands[0];
+// const second = mobileBrands[1];
+// const third = mobileBrands[2];
+
+// 自動建立 base, second, third 變數
+// 並將 mobileBrands 元素 0, 1, 2 值自動帶入
+
+// const [base, second, third] = mobileBrands;
+
+// console.log(base, second, third);
+
+// 三星 蘋果 華為
+
+// 展開語法
+// 定義一個智慧手機的物件
+
+const mobilePhone = {
+    name: 'Mobile Phone',
+    year: '2019'
+};
+
+// 複製一個新物件，其中 name 屬性就會被覆寫，而 os 屬性會被添加進去，成為一個新物件。
+const iPhone = {
+    ...mobilePhone,
+    name: 'iPhone',
+    os: 'IOS'
+};
+
+console.log(iPhone);
+
+// {name: 'iPhone', year: '2019', os: 'IOS'}
+
+// 展開語法同樣也可以用來複製陣列
+
+const mobileOnSale = ['三星', '蘋果', '華為'];
+const allMobile = [...mobileOnSale, 'Oppo', 'Vivo', '小米'];
+
+console.log(allMobile);
+
+// ['三星', '蘋果', '華為', 'Oppo', 'Vivo', '小米']
+
+// 其餘語法
+// 其餘語法可以將解構賦值中沒有被取出來的變數和陣列元素，都放到一個壓縮包裡。
+
+const production = {
+    id: 'iPhone',
+    image: 'https://i.imgur.com/b3qRKiI.jpg',
+    explanation: '全面創新三相機系統，身懷萬千本領，卻簡單易用。',
+    brand: 'Apple',
+    aggregateRating: {
+        ratingValue: '4.6',
+        reviewCount: '120',
+    },
+    offers: {
+        priceCurrency: 'TWD',
+        price: '26,900',
+    },
+};
+
+const { id, explanation, ...other } = production;
+
+console.log(other);
+
+// {image: 'https://i.imgur.com/b3qRKiI.jpg', brand: 'Apple', aggregateRating: {…}, offers: {…}}
+
+// 同樣適用於陣列
+
+const mobileBrands = [
+    '三星', '蘋果', '華為', 'Oppo', 'Vivo',
+    '小米', 'LG', '聯想', 'ZTE'
+];
+
+const [base, second, third, ...someone] = mobileBrands;
+
+// 變數不一定要取名為 other
+console.log(someone);
+
+// ['Oppo', 'Vivo', '小米', 'LG', '聯想', 'ZTE']
