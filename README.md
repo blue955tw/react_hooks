@@ -45,6 +45,7 @@ document.body.innerHTML = buttonGroup;
 ```
 
 # 箭頭函式 (arrow functions)
+
 * [箭頭函式運算式(arrow function expression) - JavaScript MDN](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
 
 **傳統定義函式**
@@ -90,7 +91,7 @@ console.log(showIphonePrice3());
 
 # 解構賦值
 
-## 物件的解構賦值
+* [解構賦值(Destructuring assignment) - JavaScript MDN](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 
 當我們拿到一大包內容物件時，而我們只需要該物件的一些屬性時，這就適用解構賦值。
 
@@ -128,7 +129,7 @@ console.log(name, description, battery);
 // iPhone 全面創新三相機系統，身懷萬千本領，卻簡單易用。 undefined
 ```
 
-## 進階：取出物件中的物件
+***進階：取出物件中的物件***
 
 ```javascript
 const {
